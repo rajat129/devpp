@@ -1,27 +1,29 @@
 const cheerio = require("cheerio");
 const request = require("request");
+const fs = require("fs");
+const inissue = require("./issue");
 
-getrepo("https://github.com/hope-for/hope-boot");
-
-function getrepo(link){
+function inside(link,topicname,reponame){
     request(link,function(error,respose,data){
-        parsebody(data);
+        parsebody(data,topicname,reponame);
     });
 }
 
-function parsebody(html){
+function parsebody(data , topicname,reponame){
 
-    let ch = cheerio.load(html);
-    let header = ch(`[data-ga-click="Repository, Navigation click, Issues tab"]`);
+    let ch = cheerio.load(data);
+    let link = ch(".UnderlineNav-body.list-style-none a ");
+    let issuelink = ch(link[1]).attr("href");
 
-    let issue = header[0];
-    let link = ch(issue).attr("href");
-    
-    console.log("https://github.com"+link);
+    // console.log(issuelink);
+    let completelink = "https://github.com" + issuelink;
 
-    // console.log(header);
+    //fs.mkdirSync(path);
+
+    inissue(completelink,topicname,reponame);
 
 }
 
-module.exports = getrepo;
+// inside("https://github.com/storybookjs/storybook","storybook");
 
+module.exports = inside;

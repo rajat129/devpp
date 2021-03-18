@@ -1,6 +1,7 @@
 const cheerio = require("cheerio");
 const request = require("request");
 const inrepo = require("./allrepo");
+const fs = require("fs");
 
 request("https://github.com/topics",function(error,respose,data){
     parsebody(data);
@@ -16,8 +17,14 @@ function parsebody(html){
         if(link!=undefined){
             let completelink = "https://github.com"+link;
             
+            let topicname = link.split("/")[2];
 
-            inrepo(completelink);
+            let path = `./data/${topicname}`;
+
+            fs.mkdirSync(path);
+
+            inrepo(completelink,topicname);
+
         }
     }
 
