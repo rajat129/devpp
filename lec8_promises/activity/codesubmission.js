@@ -72,6 +72,15 @@ opentab.then(function(browser){
     })
 
     let onequessolve = solveques(completelinks[0]);
+
+    for(let i=1;i<completelinks.length;i++){
+        onequessolve = onequessolve.then(function(){
+            let quespromis = solveques(completelinks[i]);
+            return quespromis;
+        })
+        
+    }
+
     return onequessolve;
 })
 .then(function(){
@@ -210,6 +219,29 @@ function pastecode(){
 
 }
 
+function openans(){
+    return new Promise(function(resolve,reject){
+
+        let waitpromise = tab.waitForSelector('.ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled' , {visible:true , timeout:5000});
+        waitpromise.then(function(){
+            let lockbuttonpromise = tab.$('.ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled');
+            return lockbuttonpromise;
+        })
+        .then(function(lockbutton){
+            let clickpromise = lockbutton.click();
+            return clickpromise;
+        })
+        .then(function(){
+            console.log("lock button found");
+            resolve();
+        })
+        .then(function(error){
+            resolve();
+        })
+
+    })
+}
+
 
 function solveques(link){
     return new Promise(function(resolve,reject){
@@ -218,6 +250,10 @@ function solveques(link){
         gotopromise.then(function(){
             let waitandclickpromise = waitandclick('[data-attr2="Editorial"]');
             return waitandclickpromise;
+        })
+        .then(function(){
+            let lockques = openans();
+            return lockques;
         })
         .then(function(){
             let codepromise = getcode();
