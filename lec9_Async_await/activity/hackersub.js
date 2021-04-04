@@ -1,14 +1,14 @@
 const puppeteer = require("puppeteer");
 const id="vipoje2768@bsmitao.com";
 const pas = "123456";
-let tab;
+// let tab;
 const challanges = require("./challanges");
 
 (async function(){
 
     let browser = await puppeteer.launch({headless : false, defaultViewport: null , args:["--start-maximized"]});
     let allpages = await browser.pages();
-    tab = allpages[0];
+    let tab = allpages[0];
     await tab.goto("https://www.hackerrank.com/auth/login");
     await tab.type("#input-1",id);
     await tab.type("#input-2",pas);
@@ -29,13 +29,42 @@ const challanges = require("./challanges");
     },createchallangebtn)
 
     completelink = "https://www.hackerrank.com"+link;
-    await browser.newPage();
-    // await addchallange(completelink,challanges[0],browser);
+
+    for(let i=0;i<challanges.length;i++){
+        addchallange(completelink,challanges[i],browser);
+        await tab.waitForTimeout(3000);
+    }
+
+    
 
 })();
+
 
 async function addchallange(completelink,challange,browser){
 
     let newtab = await browser.newPage();
-    // await newtab.goto(completelink);
+    await newtab.goto(completelink);
+
+    let name = challange["Challenge Name"];
+    let desc = challange["Description"];
+    let problem = challange["Problem Statement"];
+    let input = challange["Input Format"];
+    let constraints = challange["Constraints"];
+    let output = challange["Output Format"];
+    let tags = challange["Tags"];
+
+    
+    await newtab.waitForSelector("#name",{visible:true});
+    await newtab.type("#name",name);
+    await newtab.type("#preview",desc);
+    await newtab.type('#problem_statement-container .CodeMirror textarea',problem);
+    await newtab.type('#input_format-container .CodeMirror textarea',input);
+    await newtab.type('#constraints-container .CodeMirror textarea',constraints);
+    await newtab.type('#output_format-container .CodeMirror textarea',output);
+    await newtab.type("#tags_tag",tags);
+    await newtab.keyboard.press("Enter");
+    await newtab.click('.save-challenge.btn.btn-green');
+    await newtab.close();
+
+
 }
