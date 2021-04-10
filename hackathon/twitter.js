@@ -104,7 +104,13 @@ async function comment(tab,person,cmmt){
     await alllike[0].click();   
     await tab.waitForSelector('[data-testid="tweetTextarea_0"]');
     await tab.type('[data-testid="tweetTextarea_0"]',content);
+    await tab.click('[data-testid="tweetButton"]');
 
 }
 
+// instructions 
 
+// for tweet = > node twitter.js tweet <message>
+// for following a person => node twitter.js follow <completename>
+// for likeing a post on someones profile => node twitter.js like <person>
+// for commentings on someones post => node twitter.js comment <person> <comment></comment>
