@@ -13,13 +13,15 @@ const user = "sanyam50902420";
     //login to twitter
 
     await tab.goto("https://twitter.com/LOGIN");
-    await tab.waitForSelector('[name="session[username_or_email]"]');
+    await tab.waitForSelector('[name="session[username_or_email]"]',{visible:true , timeout:8000});
     await tab.type('[name="session[username_or_email]"]',id);
     await tab.type('[name="session[password]"]',pass);
     await tab.click('[data-testid="LoginForm_Login_Button"]'); 
 
-    await tab.waitForSelector('.css-1dbjc4n.r-ymttw5.r-1f1sjgu [name="session[username_or_email]"]');
-    await tab.type('.css-1dbjc4n.r-ymttw5.r-1f1sjgu [name="session[username_or_email]"]',user);
+    // await check();
+
+    await tab.waitForSelector('.css-1dbjc4n.r-ymttw5.r-1f1sjgu [name="session[username_or_email]"]',{visible:true , timeout:5000});
+    await  tab.type('.css-1dbjc4n.r-ymttw5.r-1f1sjgu [name="session[username_or_email]"]',user);
     await tab.type('.css-1dbjc4n.r-16y2uox.r-1wbh5a2 [name="session[password]"]',pass);
     await tab.click('[data-testid="LoginForm_Login_Button"]');
 
@@ -42,13 +44,39 @@ const user = "sanyam50902420";
 
 })();
 
+function check(tab){
+    console.log("geree ia am");
+    return new Promise(function(reject,resolve){
+        let waitpromise = tab.waitForSelector('.css-1dbjc4n.r-ymttw5.r-1f1sjgu [name="session[username_or_email]"]',{visible:true , timeout:5000});
+
+        waitpromise.then(function(){
+            let typepromise = tab.type('.css-1dbjc4n.r-ymttw5.r-1f1sjgu [name="session[username_or_email]"]',user);
+            return typepromise;
+        })
+        .then(function(){
+            let typepromise = tab.type('.css-1dbjc4n.r-16y2uox.r-1wbh5a2 [name="session[password]"]',pass);
+            return typepromise;
+        })
+        .then(function(){
+            let click = tab.click('[data-testid="LoginForm_Login_Button"]');;
+            return click;
+        })
+        .then(function(){
+            resolve();
+        })
+        .catch(function(){
+            resolve();
+        })
+    }) 
+} 
+
 async function tweet(tab,text){
 
     let content="";
 
     for(let i=0;i<text.length;i++){
         content=content+text[i]+" ";
-        console.log(text[i]);
+        // console.log(text[i]);
     }
 
     // console.log(content);
@@ -67,7 +95,7 @@ async function follow(tab,person){
     await tab.waitForSelector('[role="listitem"]');
     let alltags = await tab.$$('[role="listitem"]');    
     await alltags[0].click();
-    await tab.waitForSelector('.css-1dbjc4n.r-6gpygo.r-bcqeeo');
+    await tab.waitForSelector('.css-1dbjc4n.r-6gpygo.r-bcqeeo',{visible:true, timeout:5000});
     await tab.click('.css-1dbjc4n.r-6gpygo.r-bcqeeo');
 
 }
@@ -98,7 +126,7 @@ async function comment(tab,person,cmmt){
     await tab.waitForSelector('[role="listitem"]');
     let alltags = await tab.$$('[role="listitem"]');    
     await alltags[0].click();
-    await tab.waitForTimeout(6000);
+    await tab.waitForTimeout(2000);
     await tab.waitForSelector('[data-testid="reply"]');
     let alllike = await tab.$$('[data-testid="reply"]');
     await alllike[0].click();   

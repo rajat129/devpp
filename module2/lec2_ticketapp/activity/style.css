@@ -1,0 +1,119 @@
+body{
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.header{
+    height: 15vh;
+    background-color: #3d3d3d;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ticket-filter{
+    background: #4b4b4b;
+    min-height: 60%;
+    min-width: 21%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+
+.filter{
+
+min-width: 15%;
+
+min-height: 15%;
+}
+
+.red{
+    
+background: #ff4d4d;
+    
+min-width: 21px;
+    
+min-height: 21px;
+    
+border-radius: 5px;
+}
+.yellow{
+
+background: #ffaf40;
+
+min-width: 21px;
+
+min-height: 21px;
+
+border-radius: 5px;
+}
+.green{
+
+background: #3ae374;
+
+min-width: 21px;
+
+min-height: 21px;
+
+border-radius: 5px;
+}
+.blue{
+
+background: #7158e2;
+
+min-width: 21px;
+
+min-height: 21px;
+
+border-radius: 5px;
+}
+
+.ticket-actions{
+
+min-width: 8%;
+
+min-height: 60%;
+
+background: #4b4b4b;
+
+border-radius: 5px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-evenly;
+}
+
+.open-model{
+
+min-width: 40%;
+
+min-height: 27px;
+border-radius: 3px;
+}
+.close-ticket{
+
+min-width: 40%;
+
+min-height: 27px;
+border-radius: 3px;
+}
+.ticket-container{
+    min-height: 85vh;
+}
+
+.fas{
+    color: white;
+    margin: 12px;
+    margin-left: 15px;
+}
+
+.open-model:hover{
+    background-color: #3d3d3d;
+}
+
+.close-ticket:hover{
+    background-color: #3d3d3d;
+}
