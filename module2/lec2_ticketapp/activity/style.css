@@ -23,51 +23,14 @@ body{
 
 .filter{
 
-min-width: 15%;
+min-width: 12%;
 
-min-height: 15%;
+min-height: 23px;
+
+border-radius: 6px;
 }
 
-.red{
-    
-background: #ff4d4d;
-    
-min-width: 21px;
-    
-min-height: 21px;
-    
-border-radius: 5px;
-}
-.yellow{
 
-background: #ffaf40;
-
-min-width: 21px;
-
-min-height: 21px;
-
-border-radius: 5px;
-}
-.green{
-
-background: #3ae374;
-
-min-width: 21px;
-
-min-height: 21px;
-
-border-radius: 5px;
-}
-.blue{
-
-background: #7158e2;
-
-min-width: 21px;
-
-min-height: 21px;
-
-border-radius: 5px;
-}
 
 .ticket-actions{
 
@@ -102,6 +65,12 @@ border-radius: 3px;
 }
 .ticket-container{
     min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background: #b2bec3;
+    padding: 2rem;
+    flex-wrap: wrap;
 }
 
 .fas{
@@ -116,4 +85,138 @@ border-radius: 3px;
 
 .close-ticket:hover{
     background-color: #3d3d3d;
+}
+
+.filter{
+    opacity: 0.7;
+}
+
+.filter:hover{
+    opacity: 1;
+}
+
+.modal{
+
+/* border: 1px solid; */
+
+min-width: 30%;
+
+min-height: 250px;
+
+display: flex;
+
+justify-content: flex-end;
+
+align-items: center;
+
+outline: none;
+
+background: lightgoldenrodyellow;
+
+position: absolute;
+
+width: 30rem;
+
+top: 17rem;
+
+left: calc((100vw - 30rem)/2);
+}
+
+.modal-content{
+
+min-width: 58%;
+
+font-size: 1.5rem;
+
+height: 178px;
+
+padding-left: 2rem;
+
+outline: none;
+}
+
+.modal-options{
+
+background: #3d3d3d;
+
+min-width: 32%;
+
+min-height: 251px;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+flex-direction: column;
+}
+
+.red{
+
+background: #ff4d4d;
+}
+.yellow{
+
+
+
+background: #ffaf40;
+
+}
+.green{
+
+
+
+background: #3ae374;
+
+}
+.blue{
+
+background: #7158e2;
+}
+
+.modal-filter{
+    min-height: 32px;
+
+    min-width: 46%;
+    margin-top: 10px;
+    opacity: 0.7;
+    transition: transform 0.5s;
+}
+
+.modal-filter:hover{
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.ticket{
+    width: 23%;
+    /* border: solid 1px; */
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    margin: 38px;
+}
+
+.ticket-filterbar{
+    border-radius: 0px;
+    min-height: 17px;
+}
+
+.ticket-id{
+
+font-weight: bold;
+
+padding: 5px;
+}
+.ticket-content{
+    word-break: break-all;
+    padding: 37px;
+}
+
+.active{
+    border: solid 2px;
 }
