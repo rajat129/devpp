@@ -56,7 +56,7 @@ min-width: 40%;
 min-height: 27px;
 border-radius: 3px;
 }
-.close-ticket{
+.close-modal{
 
 min-width: 40%;
 
@@ -83,7 +83,7 @@ border-radius: 3px;
     background-color: #3d3d3d;
 }
 
-.close-ticket:hover{
+.close-modal:hover{
     background-color: #3d3d3d;
 }
 
@@ -181,12 +181,12 @@ background: #7158e2;
     min-width: 46%;
     margin-top: 10px;
     opacity: 0.7;
-    transition: transform 0.5s;
+    /* transition: transform 0.5s; */
 }
 
 .modal-filter:hover{
     opacity: 1;
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
 }
 
 .ticket{
@@ -210,7 +210,7 @@ background: #7158e2;
 
 font-weight: bold;
 
-padding: 5px;
+padding: 12px;
 }
 .ticket-content{
     word-break: break-all;
@@ -218,5 +218,17 @@ padding: 5px;
 }
 
 .active{
-    border: solid 2px;
+    border: solid 2px white;
 }
+
+.ticket-info{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-ticket i{
+color: black;
+cursor: pointer;
+}
+
