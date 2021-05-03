@@ -35,10 +35,13 @@ function addcells(){
 }
 addcells();
 
+let sheetDb = [];
 let db;
+let visitedcells;
 
 function initdb(){
-     db = [];
+    let selectedsheetdb = [];
+    visitedcells = [];
 
     for(let i=0;i<100;i++){
     
@@ -52,14 +55,19 @@ function initdb(){
                 value:"",
                 formule:" ",
                 children:[],
-                parent:[]
+                parent:[],
+                visited:false,
+                fontstyle : {bold:false,italics:false,underline:false}
             }
 
             row.push(cellobj);
         }
-        db.push(row);
+        selectedsheetdb.push(row);
     
     }
+    sheetDb.push({db:selectedsheetdb, visitedcells:visitedcells});
+
+    db = selectedsheetdb;
 
 }
 

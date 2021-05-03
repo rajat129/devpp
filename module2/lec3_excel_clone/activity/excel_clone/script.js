@@ -34,6 +34,22 @@ for(let i=0;i<allcells.length;i++){
         
        let add = String.fromCharCode(65+col)+(row+1)+"";
        address.value = add;
+
+        // console.log(db[row][col]);
+
+       cellobj.fontstyle.bold
+       ? document.querySelector(".bold").classList.add("active-style")
+       : document.querySelector(".bold").classList.remove("active-style");
+
+       cellobj.fontstyle.italics
+       ? document.querySelector(".italics").classList.add("active-style")
+       : document.querySelector(".italics").classList.remove("active-style");
+
+       cellobj.fontstyle.underline
+       ? document.querySelector(".underline").classList.add("active-style")
+       : document.querySelector(".underline").classList.remove("active-style");
+
+
     });
 
     allcells[i].addEventListener("blur",function(e){
@@ -54,6 +70,13 @@ for(let i=0;i<allcells.length;i++){
 
         cellobj.value = val;
         updatechildren(cellobj);
+
+        if(cellobj.visited){
+            return;
+        }
+        cellobj.visited = true;
+        visitedcells.push({rowid:row,colid:col});
+        // console.log(sheetDb);
         
     })
 
@@ -93,6 +116,14 @@ formulainput.addEventListener("blur",function(e){
         cellobj.value = computedvalue;
         lastselectedcell.textContent = computedvalue;
         updatechildren(cellobj);
+
+        if(cellobj.visited){
+            return;
+        }
+        cellobj.visited = true;
+        visitedcells.push({rowid:row,colid:col});
+        // console.log(sheetDb);
+        
     }
 
 })
