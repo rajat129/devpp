@@ -13,12 +13,42 @@ app.use(express.static("public"));
 //   response.send("welcome to home page");
 // })
 
+let userlist = [];
+
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  
+  socket.on("userconnected" , function(username){
+    let userobj = {id:socket.id,username:username};
+    userlist.push(userobj);
+    console.log(userlist);
+
+    socket.emit("online-list",userlist);
+
+    socket.broadcast.emit("joined",userobj);
+  })
+
+  socket.on("disconnect",function(){
+    let leftuser;
+    let rem = userlist.filter(function(userobj){
+      if(userobj.id==socket.id){
+        leftuser = {id:socket.id,username:userobj.username};
+        return false;
+      }else{
+        return true;
+      }
+    })
+    userlist = rem;
+    socket.broadcast.emit("left",leftuser);
+  })
+
+  socket.on("leftchat",function(obj){
+    socket.broadcast.emit("chat",obj);
+  })
+
 });
 
 
 
-app.listen(5500,function(){
+server.listen(5500,function(){
   console.log("app started");  
 })

@@ -19,10 +19,60 @@
 .me {
 }
 
+.other {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 15px;
+}
+
 .name {
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    font-size: 1rem;
+}
+
+.window {
+    height: 100vh;
+    background: lightgray;
+    display: flex;
+}
+
+.left-side {
+    height: 100vh;
+    overflow: auto;
+    width: 25%;
+}
+
+.me {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.name {
+    font-size: 1.5rem;
+    word-break: break-all;
+}
+
 .image {
+    height: 100%;
+}
+
+.image img {
+    height: 100%;
 }
 
 .online {
@@ -41,6 +91,7 @@
     justify-content: center;
     align-items: center;
     word-break: break-all;
+    font-size: 1.5rem;
 }
 
 .left {
@@ -80,6 +131,109 @@
     background: #30336b;
     min-height: 37px;
     width: 200px;
+    color: white;
+    border-radius: 18px;
+    /* margin: auto; */
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.input-chat-box {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box {
+    height: 59%;
+    width: 82%;
+    border: 0px;
+    outline: none;
+}
+
+.chat-window {
+    height: 90%;
+    overflow: auto;
+}
+
+.input-box input {
+    background: #2d3436;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border-radius: 21px;
+    padding: 10px;
+    color: white;
+    font-size: initial;
+}
+
+.image {
+}
+
+.image img {
+}
+
+.online {
+}
+
+.right-side {
+    height: 100vh;
+    width: 75%;
+    background: #636e72;
+}
+
+.chat {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+    font-size: 1.5rem;
+}
+
+.left {
+    background: #b2bec3;
+    width: 300px;
+    height: 40px;
+    border-radius: 22px;
+    color: red;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.joined {
+    background: #b2bec3;
+    width: 300px;
+    height: 40px;
+    border-radius: 22px;
+    color: green;
+    margin: auto;
+    margin-top: 10px;
+    /* word-break: break-all; */
+}
+
+.my {
+    background: #130f40;
+    color: white;
+    width: 400px;
+    min-height: 37px;
+    border-radius: 21px;
+    float: right;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.rest {
+    background: #30336b;
+    min-height: 37px;
+    width: 400px;
     color: white;
     border-radius: 18px;
     /* margin: auto; */
