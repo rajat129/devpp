@@ -2,34 +2,43 @@ let menu = document.querySelector(".menu");
 let filemenuoptions = document.querySelector(".file-menu-options");
 let homemenuoptions = document.querySelector(".home-menu-options");
 
-menu.addEventListener("click",function(e){
-
-    if(e.target.classList.contains("menu")){
-        return;
-    }
-
-    let selectedmenu = e.target;
-    if (selectedmenu.classList.contains("active")) {
-        return;
-    }
-    
-    document.querySelector(".active").classList.remove("active");
-    selectedmenu.classList.add("active");
-
-    let menuname = selectedmenu.classList[0];
-
-    if(menuname=="home"){
-        homemenuoptions.classList.remove("hide");
-        filemenuoptions.classList.add("hide");
-    }else{
-        homemenuoptions.classList.add("hide");
-        filemenuoptions.classList.remove("hide");
-    }
-});
-
 let bold = document.querySelector(".bold");
 let italics = document.querySelector(".italics");
 let underline = document.querySelector(".underline");
+
+let left = document.querySelector(".left");
+let center = document.querySelector(".center");
+let right = document.querySelector(".right");
+
+left.addEventListener("click",function(e){
+    setalignment("left",left);
+})
+
+center.addEventListener("click",function(e){
+    setalignment("center",center);
+})
+
+right.addEventListener("click",function(e){
+    setalignment("right",right);
+})
+
+function setalignment(alignment,element){
+
+    if(element.classList.contains("active-style") || !lastselectedcell){
+        return;
+    }
+
+    // document.querySelector(`.${alignment}`).classList.remove("active-style");
+    let {row,col} = getrowandcol(lastselectedcell);
+    let cellobj = db[row][col];
+
+    document.querySelector(".text-align .active-style").classList.remove("active-style");
+    element.classList.add("active-style");
+
+    lastselectedcell.style.textAlign = alignment;
+    cellobj.textalign = alignment;
+
+}
 
 bold.addEventListener("click",function(e){
     setstyle("bold",bold);

@@ -11,17 +11,20 @@ body {
 }
 
 .menu-options {
-    border: 1px solid;
-    height: 60px;
+    border-bottom: 1px solid #DCDCDC;
+    height: 40px;
+    /* display: flex; */
+    /* text-align: center; */
 }
 
 .address-content {
-    border: 1px solid;
+    border-bottom: 1px solid #DCDCDC;
     height: 30px;
+    /* display: flex; */
 }
 
 .cells-content {
-    height: calc(100vh - 150px);
+    height: calc(100vh - 102px);
     /* background: gray; */
     /* border: 1px solid; */
     overflow: auto;
@@ -37,12 +40,15 @@ body {
 }
 
 .cell {
-    min-width: 65px;
-    border: 1px solid;
-    min-height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-width: 90px;
+    border-bottom: 1px solid #DCDCDC;
+    min-height: 20px;
+    border-right: 1px solid #DCDCDC;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    outline: none;
+    word-break: break-all;
 }
 
 .row {
@@ -50,42 +56,44 @@ body {
 }
 
 .top-left {
-    border: 1px solid;
-    height: 30px;
-    width: 30px;
+    border: 1px solid #DCDCDC;
+    height: 18px;
+    width: 29px;
     position: absolute;
-    background: grey;
+    background: #eceeee;
     z-index: 3;
 }
 
 .top-row {
     position: absolute;
-    background: #2ecc71;
+    background: #eceeee;
     display: flex;
     left: 31px;
     z-index: 2;
 }
 
 .top-row-cell {
-    height: 30px;
-    width: 65px;
-    border: 1px solid;
+    height: 20px;
+    width: 90px;
+    border-right: 1px solid #DCDCDC;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid #DCDCDC;
 }
 
 .left-row {
     position: absolute;
-    background: #2ecc71;
-    top: 32px;
+    background: #eceeee;
+    top: 20px;
     z-index: 1;
 }
 
 .left-row-cell {
-    border: 1px solid;
-    height: 30px;
+    border-bottom: 1px solid #DCDCDC;
+    height: 20px;
     width: 30px;
+    border-right: 1px solid #DCDCDC;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +101,7 @@ body {
 
 .allcells {
     position: absolute;
-    top: 32px;
+    top: 20px;
     left: 31px;
     /* background: grey; */
 }
@@ -161,7 +169,9 @@ body {
 }
 
 .home-menu-options {
-    height: 100%;
+    height: 60%;
+    padding-top: 9px;
+    display: flex;
 }
 
 .hide {
@@ -175,7 +185,7 @@ body {
 
 .font-styles {
     display: flex;
-    width: 130px;
+    width: 200px;
     height: 100%;
     justify-content: space-evenly;
     border-right: 1px solid lightgray;
@@ -202,13 +212,65 @@ body {
     cursor: pointer;
 }
 
-.active-style{
+.active-style {
     background: lightgray;
     border-radius: 5px;
 }
 
-.font-styles div:hover{
+.font-styles div:hover {
     background: lightgray;
     border-radius: 5px;
     opacity: 0.5;
+}
+
+#address {
+    width: 5%;
+    height: 100%;
+    border: 0px;
+    text-align: center;
+}
+
+#formula {
+    width: 89%;
+    height: 87%;
+    border: 0px;
+    outline: none;
+}
+
+.active-cell {
+    outline: solid;
+    outline-color: #228B22;
+}
+
+.selected-cell {
+    background-color: #DCDCDC;
+}
+
+.left {
+}
+
+.right {
+}
+
+.center {
+}
+
+.font-type {
+    width: 110px;
+    height: 100%;
+    border-radius: 7px;
+    outline: none;
+    background-color: #eceeee;
+}
+
+.font-size {
+    width: 50px;
+    height: 100%;
+    border-radius: 8px;
+    outline: none;
+    background-color: #eceeee;
+}
+
+.font-style {
+    width: 220px;
 }

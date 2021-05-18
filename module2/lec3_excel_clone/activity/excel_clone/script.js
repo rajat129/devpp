@@ -19,12 +19,21 @@ cellcontentdiv.addEventListener("scroll",function(e){
 
 });
 
+let col;
+let row;
+
 for(let i=0;i<allcells.length;i++){
 
     allcells[i].addEventListener("click",function(e){
 
-       let row = Number(e.target.getAttribute("rowid"));
-       let col = Number(e.target.getAttribute("colid"));
+        if(lastselectedcell){
+            lastselectedcell.classList.remove("active-cell");
+            document.querySelector(`div[trid="${col}"]`).classList.remove("selected-cell");
+            document.querySelector(`div[lrid="${row}"]`).classList.remove("selected-cell");
+        }
+
+       row = Number(e.target.getAttribute("rowid"));
+       col = Number(e.target.getAttribute("colid"));
         let cellobj = db[row][col];
         if(cellobj.formula==undefined){
             formulainput.value = "";
@@ -36,6 +45,10 @@ for(let i=0;i<allcells.length;i++){
        address.value = add;
 
         // console.log(db[row][col]);
+       
+        e.target.classList.add("active-cell");
+        document.querySelector(`div[trid="${col}"]`).classList.add("selected-cell");
+        document.querySelector(`div[lrid="${row}"]`).classList.add("selected-cell");
 
        cellobj.fontstyle.bold
        ? document.querySelector(".bold").classList.add("active-style")
@@ -49,6 +62,13 @@ for(let i=0;i<allcells.length;i++){
        ? document.querySelector(".underline").classList.add("active-style")
        : document.querySelector(".underline").classList.remove("active-style");
 
+       if(lastselectedcell){
+           document.querySelector(".text-align .active-style").classList.remove("active-style");
+       }
+
+       let alignment = cellobj.textalign;
+
+       document.querySelector(`.${alignment}`).classList.add("active-style");
 
     });
 

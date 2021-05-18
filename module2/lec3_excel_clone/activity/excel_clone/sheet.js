@@ -19,7 +19,7 @@ addsheetbtn.addEventListener("click",function(e){
     clearUI();
     initdb();
     
-    console.log(sheetDb);
+    // console.log(sheetDb);
 
 });
 
@@ -43,7 +43,20 @@ function updateUI(){
 
     for(let i=0;i<visitedcells.length;i++){
         let {rowid,colid} = visitedcells[i];
-        document.querySelector(`div[rowid="${rowid}"][colid="${colid}"]`).innerHTML = db[rowid][colid].value;
+        let cell = document.querySelector(`div[rowid="${rowid}"][colid="${colid}"]`);
+        cell.innerHTML = db[rowid][colid].value;
+        if( db[rowid][colid].fontstyle["bold"]){
+            cell.style.fontWeight = "bold";
+        }
+        if(db[rowid][colid].fontstyle["italics"]){
+            cell.style.fontStyle = "italic";
+        }
+        if(db[rowid][colid].fontstyle["underline"]){
+            cell.style.textDecoration = "underline";
+        }
+        
+        
+        
     }    
 
 }
@@ -59,6 +72,7 @@ function clearUI(){
     for(let i=0;i<visitedcells.length;i++){
         let {rowid,colid} = visitedcells[i];
         document.querySelector(`div[rowid="${rowid}"][colid="${colid}"]`).innerHTML = "";
-        document.querySelector(`div[rowid="${rowid}"][colid="${colid}"]`).style = "normal";
+        document.querySelector(`div[rowid="${rowid}"][colid="${colid}"]`).style = "";
+        
     }
 }

@@ -6,13 +6,13 @@ function addcells(){
 
     cells+=`<div class="top-row">`;
     for(let i=0;i<26;i++){
-        cells+=`<div class="top-row-cell">${String.fromCharCode(65+i)}</div>`;
+        cells+=`<div class="top-row-cell" trid=${i}>${String.fromCharCode(65+i)}</div>`;
     }
     cells+="</div>";
 
     cells+=`<div class="left-row">`;
     for(let i=0;i<100;i++){
-        cells+=`<div class="left-row-cell">${i+1}</div>`;
+        cells+=`<div class="left-row-cell" lrid=${i}>${i+1}</div>`;
     }
     cells+=`</div>`;
 
@@ -57,7 +57,8 @@ function initdb(){
                 children:[],
                 parent:[],
                 visited:false,
-                fontstyle : {bold:false,italics:false,underline:false}
+                fontstyle : {bold:false,italics:false,underline:false},
+                textalign : "left"
             }
 
             row.push(cellobj);
