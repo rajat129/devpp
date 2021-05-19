@@ -1,0 +1,288 @@
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.menu {
+    /* border: 1px solid; */
+    height: 30px;
+}
+
+.menu-options {
+    border-bottom: 1px solid #DCDCDC;
+    height: 40px;
+    /* display: flex; */
+    /* text-align: center; */
+}
+
+.address-content {
+    border-bottom: 1px solid #DCDCDC;
+    height: 30px;
+    /* display: flex; */
+}
+
+.cells-content {
+    height: calc(100vh - 102px);
+    /* background: gray; */
+    /* border: 1px solid; */
+    overflow: auto;
+    /* display: flex; */
+    position: relative;
+}
+
+.sheets {
+    /* border: 1px solid; */
+    height: 30px;
+    display: flex;
+    background: #eceeee;
+}
+
+.cell {
+    min-width: 90px;
+    border-bottom: 1px solid #DCDCDC;
+    min-height: 20px;
+    border-right: 1px solid #DCDCDC;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    outline: none;
+    word-break: break-all;
+}
+
+.row {
+    display: flex;
+}
+
+.top-left {
+    border: 1px solid #DCDCDC;
+    height: 18px;
+    width: 29px;
+    position: absolute;
+    background: #eceeee;
+    z-index: 3;
+}
+
+.top-row {
+    position: absolute;
+    background: #eceeee;
+    display: flex;
+    left: 31px;
+    z-index: 2;
+}
+
+.top-row-cell {
+    height: 20px;
+    width: 90px;
+    border-right: 1px solid #DCDCDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.left-row {
+    position: absolute;
+    background: #eceeee;
+    top: 20px;
+    z-index: 1;
+}
+
+.left-row-cell {
+    border-bottom: 1px solid #DCDCDC;
+    height: 20px;
+    width: 30px;
+    border-right: 1px solid #DCDCDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.allcells {
+    position: absolute;
+    top: 20px;
+    left: 31px;
+    /* background: grey; */
+}
+
+.add-sheets {
+    height: 100%;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-right: solid 1px gray;
+}
+
+.sheet-list {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.sheet {
+    /* margin-right: 21px; */
+    border-right: solid 1px lightgray;
+    font-size: 0.8rem;
+    height: 100%;
+    width: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active-sheet {
+    background: white;
+    font-weight: bold;
+}
+
+.add-sheets .fas {
+    color: #2ecc71;
+}
+
+.menu {
+    background-color: #eceeee;
+    display: flex;
+    align-items: center;
+}
+
+.menu div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    border-right: 1px solid lightgray;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.home {
+}
+
+.file {
+}
+
+.file-menu-options {
+}
+
+.home-menu-options {
+    height: 60%;
+    padding-top: 9px;
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+.active {
+    background-color: white;
+    font-weight: bold;
+}
+
+.font-styles {
+    display: flex;
+    width: 200px;
+    height: 100%;
+    justify-content: space-evenly;
+    border-right: 1px solid lightgray;
+    align-items: center;
+}
+
+.bold {
+}
+
+.italics {
+}
+
+.underline {
+}
+
+.font-styles div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 15px; */
+    height: 25px;
+    width: 25px;
+    /* background: aqua; */
+    cursor: pointer;
+}
+
+.active-style {
+    background: lightgray;
+    border-radius: 5px;
+}
+
+.font-styles div:hover {
+    background: lightgray;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+#address {
+    width: 5%;
+    height: 100%;
+    border: 0px;
+    text-align: center;
+}
+
+#formula {
+    width: 89%;
+    height: 87%;
+    border: 0px;
+    outline: none;
+}
+
+.active-cell {
+    outline: solid;
+    outline-color: #228B22;
+}
+
+.selected-cell {
+    background-color: #DCDCDC;
+}
+
+.left {
+}
+
+.right {
+}
+
+.center {
+}
+
+.font-type {
+    width: 110px;
+    height: 100%;
+    border-radius: 7px;
+    outline: none;
+    background-color: #eceeee;
+}
+
+.font-size {
+    width: 50px;
+    height: 100%;
+    border-radius: 8px;
+    outline: none;
+    background-color: #eceeee;
+}
+
+.font-style {
+    width: 220px;
+}
+
+.clicked-cell{
+    outline: 2px solid #9b59b6;
+    background-color: #eceeee;
+}
+
+.name-div{
+    color: #9b59b6;
+    position: relative;
+    left: 95px;
+    top: 17px;
+}

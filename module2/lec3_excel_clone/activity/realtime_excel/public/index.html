@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- <div class="menu">
+        <div class="home">Home</div>
+        <div class="file active">File</div>
+    </div> -->
+    <div class="menu-options">
+        <!-- <div class="file-menu-options">File Menu Options</div> -->
+        <div class="home-menu-options">
+            <div class="font-styles">
+                <div class="bold">
+                    <i class="fas fa-bold"></i>
+                </div>
+                <div class="italics">
+                    <i class="fas fa-italic"></i>
+                </div>
+                <div class="underline">
+                    <i class="fas fa-underline"></i>
+                </div>
+            </div>
+            <div class="font-styles text-align">
+                <div class="left">
+                    <i class="fas fa-align-left"></i>
+                </div>
+                <div class="center">
+                    <i class="fas fa-align-center"></i>
+                </div>
+                <div class="right">
+                    <i class="fas fa-align-right"></i>
+                </div>
+            </div>
+            <div class="font-styles font-style">
+                <select class="font-type">
+                    <option value="">comic sans</option>
+                    <option value="">comic sans</option>
+                    <option value="">comic sans</option>
+                    <option value="">comic sans</option>
+                    <option value="">comic sans</option>
+                </select>
+                <select class="font-size">
+                    <option value="">10</option>
+                    <option value="">12</option>
+                    <option value="">14</option>
+                    <option value="">16</option>
+                    <option value="">20</option>
+                </select>
+            </div>
+            <div class="font-styles">
+                <div>
+                    <i class="fas fa-palette"></i>
+                    <input type="color" style="display: none;">
+                </div>
+                <div>
+                    <i class="fas fa-fill"></i>
+                    <input type="color" style="display: none;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="address-content">
+        <input type="text" id="address" disabled>
+        <input type="test" id="formula">
+    </div>
+    <div class="cells-content"></div>
+    <div class="sheets">
+        <div class="add-sheets">
+            <i class="fas fa-plus"></i>
+        </div>
+        <div class="sheet-list">
+            <div class="sheet active-sheet" sheetid="0">Sheet 1</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script>
+        var socket = io();
+    </script>
+
+    <script src="./init.js"></script>
+    <script src="./script.js"></script>
+    <script src="./util.js"></script>
+    <script src="./sheet.js"></script>
+    <script src="./menu.js"></script>
+    <script src="./socket.js"></script>
+</body>
+</html>
