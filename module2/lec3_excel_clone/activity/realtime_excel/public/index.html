@@ -7,18 +7,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="parent">
+        <div class="child">
+            <div class="heading">
+                <h2>Welcome to Excel-Clone !!!</h2>
+            </div>
+            <div class="input">
+                <h5>Enter your name</h5>
+                <input type="text" class="name">
+                <button class="enter">Enter</button>
+            </div>
+        </div>
+    </div>
     
-    <!-- <div class="menu">
-        <div class="home">Home</div>
-        <div class="file active">File</div>
-    </div> -->
     <div class="menu-options">
-        <!-- <div class="file-menu-options">File Menu Options</div> -->
         <div class="home-menu-options">
             <div class="font-styles">
                 <div class="bold">
@@ -42,30 +51,45 @@
                     <i class="fas fa-align-right"></i>
                 </div>
             </div>
+            
             <div class="font-styles font-style">
                 <select class="font-type">
-                    <option value="">comic sans</option>
-                    <option value="">comic sans</option>
-                    <option value="">comic sans</option>
-                    <option value="">comic sans</option>
-                    <option value="">comic sans</option>
+                    <option style="font-family:Noto Sans" value="Noto Sans">Noto Sans</option>
+                    <option style="font-family:Arial" value="Arial">Arial</option>
+                    <option style="font-family:Calibri" value="Calibri">Calibri</option>
+                    <option style="font-family:Comic Sans MS" value="Comic Sans MS">Comic Sans MS</option>
+                    <option style="font-family:Courier New" value="Courier New">Courier New</option>
+                    <option style="font-family:Impact" value="Impact">Impact</option>
+                    <option style="font-family:Georgia" value="Georgia">Georgia</option>
+                    <option style="font-family:Garamond" value="Garamond">Garamond</option>
+                    <option style="font-family:Lato" value="Lato">Lato</option>
+                    <option style="font-family:Open Sans" value="Open Sans">Open Sans</option>
+                    <option style="font-family:Palatino" value="Palatino">Palatino</option>
+                    <option style="font-family:Verdana" value="Verdana">Verdana</option>
                 </select>
                 <select class="font-size">
-                    <option value="">10</option>
-                    <option value="">12</option>
-                    <option value="">14</option>
-                    <option value="">16</option>
-                    <option value="">20</option>
+                    <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14" selected>14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+                <option value="22">22</option>
+                <option value="24">24</option>
+                <option value="26">26</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
                 </select>
             </div>
             <div class="font-styles">
-                <div>
-                    <i class="fas fa-palette"></i>
-                    <input type="color" style="display: none;">
+                <div class="div1">
+                    <i class="material-icons menu-icon">format_color_text</i>                     
+                    <input type="color" class="back-color">
                 </div>
-                <div>
+                <div class="div2">
                     <i class="fas fa-fill"></i>
-                    <input type="color" style="display: none;">
+                    <input type="color" class="text-color">
                 </div>
             </div>
 
@@ -75,7 +99,7 @@
         <input type="text" id="address" disabled>
         <input type="test" id="formula">
     </div>
-    <div class="cells-content"></div>
+    <div class="cells-content" id="cellsid"></div>
     <div class="sheets">
         <div class="add-sheets">
             <i class="fas fa-plus"></i>

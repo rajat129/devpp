@@ -58,7 +58,11 @@ function initdb(){
                 parent:[],
                 visited:false,
                 fontstyle : {bold:false,italics:false,underline:false},
-                textalign : "left"
+                textalign : "left",
+                font : "comic sans",
+                size :10,
+                textcolor :"#000000",
+                backcolor : "#000000"
             }
 
             row.push(cellobj);

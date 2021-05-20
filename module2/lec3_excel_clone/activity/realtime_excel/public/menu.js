@@ -10,6 +10,12 @@ let left = document.querySelector(".left");
 let center = document.querySelector(".center");
 let right = document.querySelector(".right");
 
+let fonttype = document.querySelector(".font-type");
+let fontsize = document.querySelector(".font-size");
+
+let backcolor = document.querySelector(".div1")
+let textcolor = document.querySelector(".div2");
+
 left.addEventListener("click",function(e){
     setalignment("left",left);
 })
@@ -42,14 +48,17 @@ function setalignment(alignment,element){
 
 bold.addEventListener("click",function(e){
     setstyle("bold",bold);
+    socket.emit("bold",lastselectedcell);
 });
 
 italics.addEventListener("click",function(e){
     setstyle("italics",italics);
+    socket.emit("italics",lastselectedcell);
 });
 
 underline.addEventListener("click",function(e){
     setstyle("underline",underline);
+    socket.emit("underline",lastselectedcell);
 });
 
 function setstyle(stylename,element){
@@ -88,4 +97,56 @@ function setstyle(stylename,element){
     }
 }
 
+fonttype.addEventListener("click",function(e){
+    let {row,col} = getrowandcol(lastselectedcell);
+    let cell = db[row][col];
+    let font = e.target.value;
 
+    if(cell.font==font){
+        return;
+    }
+
+    lastselectedcell.style.fontFamily = font;
+    cell.font = font;
+})
+
+fontsize.addEventListener("click",function(e){
+    let size = e.target.value;
+    let {row,col} = getrowandcol(lastselectedcell);
+    let cell = db[row][col];
+
+    if(cell.size==size){
+        return;
+    }
+
+    console.log(size);
+    lastselectedcell.style.fontSize = Number(size)+`px`;
+    cell.size = size;
+})
+
+backcolor.addEventListener("click",function(e){
+    document.querySelector(".back-color").click();
+})
+
+textcolor.addEventListener("click",function(e){
+    document.querySelector(".text-color").click();
+})
+
+let color1 = document.querySelector(".back-color");
+let color2 = document.querySelector(".text-color");
+
+color1.addEventListener("blur",function(e){
+    let {row,col} = getrowandcol(lastselectedcell);
+    let cell = db[row][col];
+
+    lastselectedcell.style.color = e.target.value;
+    cell.textcolor = e.target.value;
+});
+
+color2.addEventListener("blur",function(e){
+    let {row,col} = getrowandcol(lastselectedcell);
+    let cell = db[row][col];
+
+    lastselectedcell.style.backgroundColor = e.target.value;
+    cell.backcolor = e.target.value;
+})

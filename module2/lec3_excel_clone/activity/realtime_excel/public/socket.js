@@ -33,3 +33,69 @@ socket.on("cell-val",function(cellval){
         cell.append(namediv);
     }
 })
+
+socket.on("bold",function(lastselectedcell){
+
+    if(!document.querySelector(".clicked-cell")){
+        return;
+    }
+    let lastclickedcell = document.querySelector(".clicked-cell");
+    let {row,col} = getrowandcol(lastclickedcell);
+    let cell = db[row][col];
+    let bold = document.querySelector(".bold");
+
+    if(!cell.fontstyle["bold"]){
+        cell.fontstyle["bold"] = !cell.fontstyle["bold"];
+        lastclickedcell.style.fontWeight = "bold";
+        bold.classList.add("active-style");
+    }else{
+        cell.fontstyle["bold"] = !cell.fontstyle["bold"];
+        lastclickedcell.style.fontWeight = "normal";
+        bold.classList.remove("active-style");
+    }
+    
+})
+
+socket.on("italics",function(lastselectedcell){
+
+    if(!document.querySelector(".clicked-cell")){
+        return;
+    }
+    let lastclickedcell = document.querySelector(".clicked-cell");
+    let {row,col} = getrowandcol(lastclickedcell);
+    let cell = db[row][col];
+
+    let italics = document.querySelector(".italics");
+    if(!cell.fontstyle["italics"]){
+        cell.fontstyle["italics"] = !cell.fontstyle["italics"];
+        lastclickedcell.style.fontStyle = "italic";
+        italics.classList.add("active-style");
+    }else{
+        cell.fontstyle["italics"] = !cell.fontstyle["italics"];
+        lastclickedcell.style.fontStyle = "normal";
+        italics.classList.remove("active-style");
+    }
+    
+})
+
+socket.on("underline",function(lastselectedcell){
+
+    if(!document.querySelector(".clicked-cell")){
+        return;
+    }
+    let lastclickedcell = document.querySelector(".clicked-cell");
+    let {row,col} = getrowandcol(lastclickedcell);
+    let cell = db[row][col];
+
+    let underline = document.querySelector(".underline");
+    if(!cell.fontstyle["underline"]){
+        cell.fontstyle["underline"] = !cell.fontstyle["underline"];
+        lastclickedcell.style.textDecoration = "underline";
+        underline.classList.add("active-style");
+    }else{
+        cell.fontstyle["underline"] = !cell.fontstyle["underline"];
+        lastclickedcell.style.textDecoration = "none";
+        underline.classList.remove("active-style");
+    }
+    
+})

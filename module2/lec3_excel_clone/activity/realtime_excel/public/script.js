@@ -7,7 +7,17 @@ let address = document.querySelector("#address");
 let formulainput = document.querySelector("#formula");
 let lastselectedcell;
 
-let username = prompt("enter your name");
+let username;
+
+let nameinput = document.querySelector(".name");
+let enter = document.querySelector(".enter");
+let parent = document.querySelector(".parent");
+
+enter.addEventListener("click",function(e){
+    username = nameinput.value;
+    parent.style.display = "none";
+
+});
 
 cellcontentdiv.addEventListener("scroll",function(e){
 

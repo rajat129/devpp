@@ -34,6 +34,18 @@ io.on('connection', (socket) => {
     socket.broadcast.emit("cell-val",cellval);
   })
 
+  socket.on("bold",function(lastselectedcell){
+    socket.broadcast.emit("bold",lastselectedcell);
+  })
+
+  socket.on("italics",function(lastselectedcell){
+    socket.broadcast.emit("italics",lastselectedcell);
+  })
+
+  socket.on("underline",function(lastselectedcell){
+    socket.broadcast.emit("underline",lastselectedcell);
+  })
+
 
 });
 
