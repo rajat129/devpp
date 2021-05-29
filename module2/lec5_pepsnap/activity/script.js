@@ -79,13 +79,15 @@ function savevideotofs(){
     let videourl = URL.createObjectURL(recordeddata); //create blob object to blob url
     // console.log(videourl);
 
-    let atag = document.createElement("a");
-    atag.href = videourl;
-    atag.download = "video.mp4";
-    // console.log(atag);
+    savemedia("video",videourl);
 
-    atag.click();
-    atag.remove();
+    // let atag = document.createElement("a");
+    // atag.href = videourl;
+    // atag.download = "video.mp4";
+    // // console.log(atag);
+
+    // atag.click();
+    // atag.remove();
 }
 
 function captureimg(){
@@ -104,10 +106,12 @@ function captureimg(){
     ctx.drawImage(video,0,0);
 
     let imgurl = canvas.toDataURL("image/jpg");
-    let atag = document.createElement("a");
-    atag.href = imgurl;
-    atag.download = "image.jpg";
+    savemedia("image",imgurl);
 
-    atag.click();
+    // let atag = document.createElement("a");
+    // atag.href = imgurl;
+    // atag.download = "image.jpg";
+
+    // atag.click();
 
 }

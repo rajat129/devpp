@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    database <input type="text" class="input-database">
+    version <input type="text" class="version">
+    <button class="btn">enter</button>
+
+    <div>
+        mid <input type="text" class="mid">
+        mediatype <input type="text" class="media-type">
+        <button class="entermedia">entermedia</button>
+    </div>
+
+    <button class="showmedia">show</button>
+    
+    <script>
+
+        let db;
+
+        let mid = document.querySelector(".mid");
+        let mediatype = document.querySelector(".media-type");
+        let entermedia = document.querySelector(".entermedia");
+        
+        let database = document.querySelector(".input-database");
+        let version = document.querySelector(".version");
+        let btn = document.querySelector(".btn");
+
+        let showmedia = document.querySelector(".showmedia");
+
+        showmedia.addEventListener("click",show);
+        btn.addEventListener("click",opendb);
+        entermedia.addEventListener("click",media);
+
+        function show(){
+
+            let txn = db.transaction("Media","readonly");
+            let mediastore = txn.objectStore("Media");
+
+            let cursorobj = mediastore.openCursor();
+
+            cursorobj.onsuccess = function(e){
+
+                let cursor = cursorobj.result;
+                if(cursor){
+                    console.log(cursor.value);
+                    cursor.continue();
+                }
+            }
+
+        }
+
+        function media(){
+
+            let txn = db.transaction("Media","readwrite");
+            let mediastore = txn.objectStore("Media");
+
+            mediastore.add({mid:mid.value,type:mediatype.value});
+        }
+
+
+        function opendb(){
+
+            let dbrequest = indexedDB.open(database.value,version.value);
+            // console.log(dbrequest);
+            
+
+            dbrequest.onupgradeneeded = function(e){
+                alert("on upgrade");
+                db = e.target.result;
+                let mediatable = db.createObjectStore("Media",{keyPath : "mid"});
+                console.log(db);
+            }
+
+            dbrequest.onsuccess = function(e){
+                alert("on success event");
+                db = e.target.result;
+                console.log(db);        
+            }
+
+            dbrequest.onerror = function(e){
+                alert("error");
+            }
+
+        }
+
+        
+        
+
+    </script>
+
+</body>
+</html>
