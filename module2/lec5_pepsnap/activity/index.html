@@ -13,27 +13,34 @@
     
     <div class="video-container">
         <video autoplay></video>
+        <div class="controls">
+            <div class="zoom">
+                <div class="in">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="out">
+                    <i class="fas fa-minus"></i>
+                </div>
+            </div>
+        
+            <div class="media-control">
+                <div class="record-button">
+                    <div class="record-button-animation"></div>
+                </div>
+                <div class="click-button">
+                    <div class="click-button-animation"></div>
+                </div>
+                <div class="gallery-button">
+                    <i class="fas fa-photo-video fa-2x"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="zoom">
-        <div class="in">
-            <i class="fas fa-plus"></i>
-        </div>
-        <div class="out">
-            <i class="fas fa-minus"></i>
-        </div>
-    </div>
-
-    <div class="media-control">
-        <div class="record-button">
-            <div class="record-button-animation"></div>
-        </div>
-        <div class="click-button">
-            <div class="click-button-animation"></div>
-        </div>
-    </div>
-    <script src="./script.js"></script>
+    
     <script src="./db.js"></script>
+    <script src="./mediautil.js"></script>
+    <script src="./script.js"></script>
  
 </body>
 </html>

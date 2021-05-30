@@ -8,6 +8,7 @@ let recordingstate = false;
 let plus = document.querySelector(".in");
 let minus = document.querySelector(".out");
 
+
 let max = 2;
 let min = 1;
 let now = 1;
@@ -76,18 +77,19 @@ minus.addEventListener("click",function(){
 })();
 
 function savevideotofs(){
-    let videourl = URL.createObjectURL(recordeddata); //create blob object to blob url
+    //  //create blob object to blob url
     // console.log(videourl);
+    let blob = new Blob([recordeddata],{type:"video/mp4"});
+    // let videourl = URL.createObjectURL(blob);
 
-    savemedia("video",videourl);
+    let iv = setInterval(function(){
+        if(db){
+            savemedia("video",blob);
+            clearInterval(iv);
+        }
+    },100)
 
-    // let atag = document.createElement("a");
-    // atag.href = videourl;
-    // atag.download = "video.mp4";
-    // // console.log(atag);
-
-    // atag.click();
-    // atag.remove();
+    
 }
 
 function captureimg(){
@@ -105,13 +107,14 @@ function captureimg(){
 
     ctx.drawImage(video,0,0);
 
-    let imgurl = canvas.toDataURL("image/jpg");
-    savemedia("image",imgurl);
+    let imgurl = canvas.toDataURL("image/jpg"); 
 
-    // let atag = document.createElement("a");
-    // atag.href = imgurl;
-    // atag.download = "image.jpg";
+    let iv = setInterval(function(){
+        if(db){
+            savemedia("image",imgurl);
+            clearInterval(iv);
+        }
+    },100)
 
-    // atag.click();
-
+    
 }
