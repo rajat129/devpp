@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="header">
+        <div class="tools">
+            <div class="tool pencil ">
+                <i class="fas fa-pencil-alt fa-2x"></i>
+                <div class="tool-options hide">
+                    <div class="pencil-size">
+                        <input type="range" value="1" max="40" min="1">
+                    </div>
+                    <div class="pencil-color">
+                        <div class="red"></div>
+                        <div class="blue"></div>
+                        <div class="green"></div>
+                        <div class="yellow"></div>
+                        <div class="black"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tool eraser">
+                <i class="fas fa-eraser fa-2x"></i>
+                <div class="tool-options-eraser hide">
+                    <div class="eraser-size">
+                        <input type="range" value="1" max="40" min="1">
+                    </div>
+                </div>
+            </div>
+            <div class="tool undo">
+                <i class="fas fa-undo fa-2x"></i>
+            </div>
+            <div class="tool redo">
+                <i class="fas fa-redo fa-2x"></i>
+            </div>
+            <div class="tool">
+                <i class="fas fa-sticky-note fa-2x"></i>
+            </div>
+            <div class="tool">
+                <i class="fas fa-file-download fa-2x"></i>
+            </div>
+            <div class="tool">
+                <i class="fas fa-file-image fa-2x"></i>
+            </div>
+        </div>
+    </div>
+    <div class="canvas-space">
+        <canvas class="canvas">
+
+        </canvas>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./tools.js"></script>
+    <script src="./undo.js"></script>
+</body>
+</html>
