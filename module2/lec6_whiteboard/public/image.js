@@ -25,6 +25,7 @@ download.addEventListener("click",function(){
 
 })
 
+//
 function addimg(img){
 
     let div = document.createElement("div");
