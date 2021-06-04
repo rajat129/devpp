@@ -178,3 +178,27 @@ input {
     opacity: 0.3;
     cursor: pointer;
 }
+
+.image-icon {
+}
+
+.image-input {
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+}
+
+.note1 {
+    height: 166px;
+    width: 150px;
+    outline: none;
+    box-shadow: 0 8px 16px 0 rgb(88 88 88);
+    position: absolute;
+    top: 200px;
+    left: 600px;
+}
+
+.download {
+}

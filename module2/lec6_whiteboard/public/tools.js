@@ -64,8 +64,12 @@ size2.addEventListener("change",function(){
     erasersize = size2.value;
 })
 
-addsticky.addEventListener("click",function(){
+addsticky.addEventListener("click",addticket);
+
+function addticket(){
+
     let div = document.createElement("div");
+
     div.classList.add("note");
     div.setAttribute("id",Date.now());
 
@@ -84,7 +88,8 @@ addsticky.addEventListener("click",function(){
     <div class="body" contenteditable="true">
         enter here !!!!
     </div>`;
-
+    
+    
     sticky.appendChild(div);
 
     let stickyclose = document.querySelectorAll(".close");
@@ -122,7 +127,7 @@ addsticky.addEventListener("click",function(){
 
                 let x = e.clientX;
                 let y = e.clientY;
-                console.log(x,y);
+                // console.log(x,y);
                 let div = document.querySelector(`div[id="${id}"]`);
                 div.style.left = x+"px";
                 div.style.top = y+"px";
@@ -172,7 +177,7 @@ addsticky.addEventListener("click",function(){
         })
 
     }
-})
+}
 
 
 
