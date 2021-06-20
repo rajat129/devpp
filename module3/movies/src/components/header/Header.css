@@ -1,0 +1,32 @@
+.header{
+    height: 100px;
+    /* background-color: blue; */
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    height: 90%;
+    width: 15%;
+}
+
+.logo img{
+    height: 100%;
+    width: 100%;
+}
+
+.search-bar{
+    
+}
+
+.search-bar input{
+    background-color: white;
+    outline: none;
+    width: 200px;
+    height: 30px;
+    font-size: 1.0rem;
+    text-align: center;
+}
