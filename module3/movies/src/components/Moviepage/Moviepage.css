@@ -26,7 +26,8 @@
 }
 
 .heading{
-
+    display: flex;
+    justify-content: space-between;
 }
 
 .overview{
@@ -35,4 +36,9 @@
 
 .trailer{
 
+}
+
+.div2 i{
+    color: lightgray;
+    cursor: pointer;
 }

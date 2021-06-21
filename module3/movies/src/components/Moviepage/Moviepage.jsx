@@ -4,6 +4,7 @@ import axios from "axios";
 import { API_KEY, API_URL } from '../../api/secrets';
 import YouTube from 'react-youtube';
 
+
 class Moviepage extends Component {
     state = { 
         videoobj : {}
@@ -19,12 +20,12 @@ class Moviepage extends Component {
             return false;
         })
 
-        console.log(videoobj);
+        // console.log(videoobj);
 
         this.setState({
             videoobj : videoobj[0]
         })
-    }   
+    }  
 
     render() { 
         let {title , tagline,vote_average,overview,id,poster_path} = this.props.location.state;
@@ -44,11 +45,16 @@ class Moviepage extends Component {
                 </div>
                 <div className="content">
                     <div className="heading">
-                        <h1>{title}</h1>
-                        <h3>{vote_average} IMDB</h3>
-                        <p>{tagline}</p>
-                        <span>{overview}</span>
+                        <div className="div1">
+                            <h1>{title}</h1>
+                            <h3>{vote_average} IMDB</h3>
+                        </div>
+                        <div className="div2" onClick={() => {this.props.location.setFavourites(this.props.location.state)}}>
+                            <i class="fas fa-heart fa-3x"></i>
+                        </div>
                     </div>
+                    <p>{tagline}</p>
+                    <span>{overview}</span>
                     <div className="overview"></div>
                     <br></br>
                     <div className="trailer">

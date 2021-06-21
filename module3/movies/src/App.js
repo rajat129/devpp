@@ -14,7 +14,18 @@ class App extends Component {
     moviesData : [],
     name : "avengers",
     pages : [],
-    currentPage : 1
+    currentPage : 1,
+    favourites : []
+  }
+
+  setFavourites = (movieobj) => {
+    let favarray = this.state.favourites;
+    favarray.push(movieobj);
+    this.setState({
+      favourites : favarray
+    });
+
+    console.log(this.state.favourites);
   }
 
   async componentDidMount() {
@@ -96,12 +107,12 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header setMovie={this.setMovie}></Header>
+          <Header setMovie={this.setMovie} favourites={this.state.favourites}></Header>
 
           <Switch>
 
             <Route path="/" exact>
-              <Movies movies={this.state.moviesData}></Movies>
+              <Movies movies={this.state.moviesData} setFavourites={this.setFavourites}></Movies>
               <Page
                 previousPage={this.previousPage}
                 nextPage={this.nextPage}
@@ -111,8 +122,7 @@ class App extends Component {
               ></Page>
             </Route>
 
-            <Route path="/fav" exact>
-              <Favourite></Favourite>
+            <Route path="/fav" exact component={Favourite}>
             </Route>
 
             <Route path="/movie" exact component={Moviepage}>

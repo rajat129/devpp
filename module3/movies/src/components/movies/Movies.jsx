@@ -8,7 +8,7 @@ class Movies extends Component {
         return ( 
             <div className="movies">
                 {this.props.movies.map( (movieobj) => {
-                    return <Movie key={movieobj.id} movie={movieobj}></Movie>
+                    return <Movie key={movieobj.id} movie={movieobj} setFavourites={this.props.setFavourites}></Movie>
                 } )}
             </div> )
     }

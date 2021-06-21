@@ -23,9 +23,12 @@ class Movie extends Component {
         
         let {title , poster_path,vote_average} = this.props.movie;
         let posterPath = IMAGE_URL+poster_path;
+        
         return ( 
+
+            
             <div className="movie-item">
-                <Link to={{pathname:"/movie", state:this.state.detaileddata}}>
+                <Link to={{pathname:"/movie", state:this.state.detaileddata , setFavourites:this.props.setFavourites}}>
                     <div className="movie-poster">
                     
                         <img src={posterPath} alt="" />

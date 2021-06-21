@@ -1,5 +1,8 @@
-.movies{
+.fav-list{
+    /* height: calc( 100vh -100px ); */
+    
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -7,3 +10,4 @@
     background-color: black;
     margin-bottom: 10px;
 }
+

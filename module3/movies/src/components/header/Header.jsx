@@ -40,7 +40,7 @@ class Header extends Component {
                         <Link to="/">Home</Link>
                     </div>
                     <div className="header-link">
-                        <Link to="/fav">Favourite</Link>
+                        <Link to={{pathname:"/fav", state:this.props.favourites}}>Favourite</Link>
                     </div>
                 </div>
             </div>
