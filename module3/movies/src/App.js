@@ -4,6 +4,10 @@ import Header from "./components/header/Header.jsx";
 import Movies from "./components/movies/Movies.jsx";
 import axios from "axios";
 import Page from "./components/Page/Page.jsx";
+import {BrowserRouter as Router, Switch,Route} from "react-router-dom";
+import Favourite from './components/Favourite/Favourite.jsx';
+import Moviepage from './components/Moviepage/Moviepage.jsx';
+import "./App.css";
 
 class App extends Component {
   state = { 
@@ -90,17 +94,34 @@ class App extends Component {
 
   render() { 
     return (
-    <div className="App">
-      <Header setMovie={this.setMovie}></Header>
-      <Movies movies={this.state.moviesData}></Movies>
-      <Page
-        previousPage={this.previousPage}
-        nextPage={this.nextPage}
-        setPage={this.setPage}
-        pages={this.state.pages}
-        currentPage={this.state.currentPage}
-      ></Page>
-    </div>  );
+      <Router>
+        <div className="App">
+          <Header setMovie={this.setMovie}></Header>
+
+          <Switch>
+
+            <Route path="/" exact>
+              <Movies movies={this.state.moviesData}></Movies>
+              <Page
+                previousPage={this.previousPage}
+                nextPage={this.nextPage}
+                setPage={this.setPage}
+                pages={this.state.pages}
+                currentPage={this.state.currentPage}
+              ></Page>
+            </Route>
+
+            <Route path="/fav" exact>
+              <Favourite></Favourite>
+            </Route>
+
+            <Route path="/movie" exact component={Moviepage}>
+            </Route>
+          </Switch>
+
+        </div> 
+      </Router>
+     );
   }
 }
 

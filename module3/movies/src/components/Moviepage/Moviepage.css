@@ -1,0 +1,38 @@
+.movie-detail{
+    height: calc( 100vh - 100px);
+    width: 100%;
+    position: relative;
+    background-color: black;
+    text-align: left;
+}
+
+.poster{
+    height: 100%;
+    width: 100%;
+}
+
+.poster img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.content{
+    position: absolute;
+    color: white;
+    top: 0px;
+    padding: 50px;
+}
+
+.heading{
+
+}
+
+.overview{
+
+}
+
+.trailer{
+
+}

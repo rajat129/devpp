@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./Header.css";
+import {Link} from "react-router-dom";
 
 class Header extends Component {
     state = { 
@@ -32,6 +33,15 @@ class Header extends Component {
                 </div>
                 <div className="search-bar">
                     <input type="text" placeholder="seacrh" onChange={this.changeInputValue} onKeyPress={this.searchFunc}/>
+                </div>
+
+                <div className="header-links">
+                    <div className="header-link">
+                        <Link to="/">Home</Link>
+                    </div>
+                    <div className="header-link">
+                        <Link to="/fav">Favourite</Link>
+                    </div>
                 </div>
             </div>
          );
